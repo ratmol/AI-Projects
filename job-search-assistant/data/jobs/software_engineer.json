@@ -1,0 +1,55 @@
+{
+  "jobTitle": "Staff AI Software Engineer",
+  "companyName": "Qualcomm Canada ULC",
+  "location": "Markham, ON",
+  "remoteStatus": "not listed",
+  "requiredSkills": [
+    "Software Engineering",
+    "Hardware Engineering",
+    "Systems Engineering",
+    "C/C++",
+    "Python"
+  ],
+  "preferredSkills": [
+    "Android",
+    "Embedded Linux",
+    "OpenCL",
+    "OpenGL ES",
+    "DSPs",
+    "TensorFlow",
+    "PyTorch",
+    "Linear Algebra",
+    "Fast Math Libraries",
+    "Multi-threading",
+    "Vector instruction sets"
+  ],
+  "experienceLevel": {
+    "years": "3+ years",
+    "seniority": null
+  },
+  "educationRequired": "Bachelor's degree",
+  "salaryRange": {
+    "min": null,
+    "max": null,
+    "currency": null
+  },
+  "responsibilities": [
+    "Own and deliver key aspects of the AI stack and provide solutions that make a difference",
+    "Coordinate development with various teams to ensure a cohesive product",
+    "Ability to work with larger teams to push an idea forward",
+    "Development of optimization algorithms for ML operators/layers for the Qualcomm AI SW stack",
+    "Development of AI SW stack framework enhancements for optimal resource usage while running a neural network on Qualcomm hardware",
+    "Development of software tools for profiling, and debugging to support rapid deployment of new neural networks in this fast changing field",
+    "Evaluating and optimizing neural networks runtime performance and accuracy",
+    "Working with customer teams to enable state of the art network models and new AI SW features to meet customer use-cases",
+    "Collaborating with AI hardware and architecture teams to continuously improve our AI solution",
+    "Being an active contributor to the development process to ensure commercial quality software releases",
+    "Participate in software quality process improvements"
+  ],
+  "companyResearch": {
+    "size": "10,001+",
+    "industry": "Semiconductor Manufacturing",
+    "recentNews": "Qualcomm security advisory – December 2025 monthly rollup (AV25-797) - Canadian Centre for Cyber Security. Qualcomm Inc (QCOM) Q4 2025 Earnings Call Highlights:",
+    "cultureNotes": null
+  }
+}

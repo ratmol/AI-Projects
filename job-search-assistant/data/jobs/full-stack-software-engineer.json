@@ -1,0 +1,53 @@
+{
+  "jobTitle": "Full Stack Software Engineer",
+  "companyName": "TRADER",
+  "location": "Ontario, Canada",
+  "remoteStatus": "not listed",
+  "requiredSkills": [
+    "Typescript",
+    "Node.js",
+    "Python",
+    "Django",
+    "SQL",
+    "NoSQL",
+    "PostgreSQL",
+    "Redis",
+    "MongoDB",
+    "Javascript",
+    "HTML",
+    "CSS",
+    "Next.js / React",
+    "Vue.js",
+    "AWS",
+    "Terraform",
+    "Docker",
+    "Git"
+  ],
+  "preferredSkills": [
+    "AI tooling (ChatGPT / Codex)",
+    "AI Frameworks like Vercel AI SDK, LangChain",
+    "Logging, monitoring and alerting services like Datadog, New relic"
+  ],
+  "experienceLevel": {
+    "years": "4+ years",
+    "seniority": null
+  },
+  "educationRequired": null,
+  "salaryRange": {
+    "min": 100000,
+    "max": 150000,
+    "currency": "CAD"
+  },
+  "responsibilities": [
+    "Building AutoSync's digital platform",
+    "Taking part in daily agile ceremonies, brainstorming on innovative ideas that challenge the status quo and helping to implement solutions",
+    "Acting as an advocate for ownership & highest code quality, as well as contributing to the health of the infrastructure",
+    "Raising the bar and elevating the team by sharing knowledge and best practices, while always seeking improvements and facilitating progress"
+  ],
+  "companyResearch": {
+    "size": null,
+    "industry": null,
+    "recentNews": null,
+    "cultureNotes": null
+  }
+}

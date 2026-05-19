@@ -1,0 +1,43 @@
+{
+  "jobTitle": "Python Developer",
+  "companyName": "Deloitte",
+  "location": "Toronto, ON",
+  "remoteStatus": "hybrid",
+  "requiredSkills": [
+    "Python",
+    "FastAPI",
+    "SQL",
+    "RESTful APIs",
+    "relational databases",
+    "NoSQL databases (e.g., MongoDB)"
+  ],
+  "preferredSkills": [
+    "banking"
+  ],
+  "experienceLevel": {
+    "years": "3 years",
+    "seniority": null
+  },
+  "educationRequired": null,
+  "salaryRange": {
+    "min": 110000,
+    "max": 135000,
+    "currency": "CAD"
+  },
+  "responsibilities": [
+    "Design, develop, test, and debug backend services and APIs using Python and FastAPI, ensuring highperformance, reliability, and maintainability",
+    "Build server‑side logic, integrate RESTful services, and support microservice‑based architecturesaligned with enterprise standards",
+    "Work extensively with SQL‑based data sources, writing, optimizing, and maintaining complex queries, views, and stored procedures to support application logic, reporting, and data enrichment",
+    "Develop scripts and services for data extraction, transformation, processing, and system automation, integrating both relational (SQL) and NoSQL (MongoDB) databases",
+    "Contribute to solution and application architecture, including system design, integration patterns, dataflows, and scalability considerations",
+    "Collaborate with architects and senior engineers to ensure solutions are secure, well‑designed, and production‑ready",
+    "Support GenAI‑enabled features where applicable, such as prompt design, retrieval from structured data, and vectorized search, without being focused on model development",
+    "Partner closely with cross‑functional teams and stakeholders, applying strong people and communication skills to translate requirements, explain technical concepts, and support delivery from design through production"
+  ],
+  "companyResearch": {
+    "size": "473050",
+    "industry": "Accounting, Business Services, Consulting, Tax and Advisory",
+    "recentNews": "Deloitte Unveils the '2025 Global Business Services Survey'",
+    "cultureNotes": "At Deloitte, we make an impact that matters by creating trust and confidence in a more equitable society."
+  }
+}

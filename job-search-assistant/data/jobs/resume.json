@@ -1,0 +1,43 @@
+{
+  "jobTitle": "Software Developer",
+  "companyName": "Deloitte",
+  "location": "Toronto, ON",
+  "remoteStatus": "not listed",
+  "requiredSkills": [
+    "TypeScript",
+    "Git",
+    "Big O notation",
+    "LLM Architecture",
+    "Context Window Management",
+    "Tool Calling",
+    "Agentic Workflows",
+    "Token Pruning",
+    "Context Compression"
+  ],
+  "preferredSkills": [],
+  "experienceLevel": {
+    "years": null,
+    "seniority": "intern"
+  },
+  "educationRequired": null,
+  "salaryRange": {
+    "min": null,
+    "max": null,
+    "currency": null
+  },
+  "responsibilities": [
+    "Developed and maintained features using TypeScript, ensuring type - safety and reducing runtime errors.",
+    "Managed complex codebase health using Git; successfully resolved critical \"unrelated history\" merge conflicts and restored project integrity after directory failures.",
+    "Analyzed and optimized algorithm complexity using Big O notation, specifically focusing on tree structures (AVL/Red - Black) to improve data retrieval efficiency.",
+    "Explored agentic workflows and context management for LLMs, implementing token pruning techniques to optimize model performance.",
+    "Architected a technical framework for context compression in LLMs, focusing on token pruning and intelligent summarization to reduce inference costs.",
+    "Developed custom tool - calling logic to enable AI agents to interact with external APIs and local file systems autonomously.",
+    "Conducted performance analysis on LLM response latency and accuracy across varying context window sizes."
+  ],
+  "companyResearch": {
+    "size": "490,923",
+    "industry": "Accounting, Business Services, Consulting, Tax and Advisory",
+    "recentNews": "Deloitte Unveils the '2025 Global Business Services Survey'",
+    "cultureNotes": "make an impact that matters"
+  }
+}

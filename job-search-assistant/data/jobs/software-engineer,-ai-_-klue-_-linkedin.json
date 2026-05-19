@@ -1,0 +1,59 @@
+{
+  "jobTitle": "Software Engineer, AI",
+  "companyName": "Klue",
+  "location": "Toronto, Canada",
+  "remoteStatus": "not listed",
+  "requiredSkills": [
+    "Software engineering",
+    "Information retrieval systems",
+    "Search relevance",
+    "Ranking models",
+    "Python",
+    "PyTorch",
+    "TensorFlow",
+    "JAX",
+    "LLMs",
+    "Prompt engineering",
+    "Retrieval-augmented generation pipelines",
+    "Evaluation methods for search systems",
+    "Vector database infrastructure (FAISS, Milvus, Weaviate, Pinecone, PGVector)",
+    "Traditional search engines (Elasticsearch, OpenSearch)",
+    "Data pipelines",
+    "Preprocessing",
+    "Large-scale data handling",
+    "CI/CD pipelines",
+    "Automated LLM evaluation"
+  ],
+  "preferredSkills": [
+    "Agentic system design for LLM workflows",
+    "Conversational search",
+    "Experience with cloud infrastructure (AWS, GCP, Azure) for scalable ML workflows",
+    "Contributions to open-source projects in the retrieval, NLP, or LLM ecosystems"
+  ],
+  "experienceLevel": {
+    "years": null,
+    "seniority": "mid-level"
+  },
+  "educationRequired": null,
+  "salaryRange": {
+    "min": null,
+    "max": null,
+    "currency": null
+  },
+  "responsibilities": [
+    "Design and implement retrieval-augmented generation (RAG) systems with agentic workflows",
+    "Build and optimize retrieval pipelines using BM25, dense retrieval, hybrid retrieval, and re-ranking approaches",
+    "Develop evaluation pipelines for retrieval and generation",
+    "Experiment with query rewriting, expansion, and classification to improve retrieval relevance",
+    "Collaborate closely with Product to bring ML-powered search agents into production",
+    "Profile, debug, and optimize the latency, accuracy, and scalability of retrieval and generation components",
+    "Contribute to the design of data pipelines for training retrieval and ranking models",
+    "Stay up-to-date with advancements in LLMs, retrieval techniques, and agent architectures"
+  ],
+  "companyResearch": {
+    "size": "201-500 employees",
+    "industry": "Business Intelligence (BI) Software, Software, Customer Engagement, Software Development, Business/Productivity Software",
+    "recentNews": "Vancouver-based Software Company Klue Labs Acquires Ignition to Advance Compete and Win-Loss Programs with Agentic AI",
+    "cultureNotes": null
+  }
+}

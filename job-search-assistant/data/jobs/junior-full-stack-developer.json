@@ -1,0 +1,52 @@
+{
+  "jobTitle": "Junior Full Stack Engineer",
+  "companyName": "The Citco Group Limited",
+  "location": "not listed",
+  "remoteStatus": "not listed",
+  "requiredSkills": [
+    "Python",
+    "Node.js",
+    "React",
+    "SQL",
+    "Java",
+    "AWS",
+    "Azure",
+    "GCP",
+    "Jenkins",
+    "Bamboo",
+    "CodePipeline",
+    "JIRA"
+  ],
+  "preferredSkills": [],
+  "experienceLevel": {
+    "years": "2+ years",
+    "seniority": null
+  },
+  "educationRequired": "Bachelor's degree",
+  "salaryRange": {
+    "min": 70000,
+    "max": 94000,
+    "currency": "CAD"
+  },
+  "responsibilities": [
+    "Participate in the entire application lifecycle, focusing on coding and debugging.",
+    "Design and develop Microservices systems with Python, Node.js, React, SQL, etc.",
+    "Gather and address technical and design requirements",
+    "Perform UI tests to optimize performance",
+    "Plan, create and execute test cases applicable to user stories to ensure coverage for AExeo products",
+    "Develop solutions that are scalable, high performing, maintainable and meet high quality standards",
+    "Participate in peer reviews of code to ensure adherence to development standards",
+    "Troubleshoot and debug applications",
+    "Build reusable code and libraries for future use",
+    "Participate and contribute on all team activities such as sprint planning, daily scrums and retrospectives",
+    "Work closely with members of the Architecture and DevOps teams",
+    "Communicate and provide updates on assigned tasks while taking ownership of assigned tasks",
+    "Follow emerging technologies"
+  ],
+  "companyResearch": {
+    "size": "13,039",
+    "industry": "Financial and professional services",
+    "recentNews": "Citco's Q3 2025 Hedge Fund Report: Strongest Year in a Decade. Assets in the global hedge fund industry have surged to a record $5 trillion due to $33.7 billion net inflow of new investor capital.",
+    "cultureNotes": "Commitment to investing in people and proprietary technologies. Thought leadership and ability to quickly navigate complex change."
+  }
+}

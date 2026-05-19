@@ -1,0 +1,44 @@
+{
+  "jobTitle": "AI Engineer",
+  "companyName": "KUBRA",
+  "location": "Mississauga, ON",
+  "remoteStatus": "hybrid",
+  "requiredSkills": [
+    "Machine Learning",
+    "Python",
+    "SQL",
+    "Data pipelines",
+    "LLM",
+    "Generative AI",
+    "Data Science"
+  ],
+  "preferredSkills": [
+    "AWS Bedrock",
+    "AWS Sagemaker"
+  ],
+  "experienceLevel": {
+    "years": "3-5 years",
+    "seniority": "mid-level"
+  },
+  "educationRequired": null,
+  "salaryRange": {
+    "min": null,
+    "max": null,
+    "currency": null
+  },
+  "responsibilities": [
+    "Design and maintain scalable data-to-AI pipelines covering ingestion, transformation, feature/prompt engineering, model training, orchestration, deployment, and monitoring.",
+    "Deliver AI-driven solutions that measurably improve key product or operational metrics (e.g., revenue uplift, cost reduction, consumer satisfaction, platform efficiency, prediction accuracy, latency reduction).",
+    "Partner with Data and Product to identify and execute AI opportunities aligned with strategic objectives.",
+    "Establish and enforce AI and machine learning and data operational standards, governance, and best practices across the organization.",
+    "Deliver actionable, data-driven insights and reporting to inform business decisions and evaluate performance across products, operations, and AI systems.",
+    "Build reliable experimentation frameworks to validate model performance and business impact and drive iterative improvements through reliable model evaluation and testing.",
+    "Own the scalability, robustness, observability, optimization and operational excellence of production AI systems and data pipelines."
+  ],
+  "companyResearch": {
+    "size": "501-1,000 employees",
+    "industry": "Software Development, Financial Software, Mobile App Development",
+    "recentNews": null,
+    "cultureNotes": null
+  }
+}

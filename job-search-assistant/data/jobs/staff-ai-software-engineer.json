@@ -1,0 +1,52 @@
+{
+  "jobTitle": "Staff AI Software Engineer",
+  "companyName": "Qualcomm",
+  "location": "Markham, ON",
+  "remoteStatus": "not listed",
+  "requiredSkills": [
+    "C++",
+    "Python",
+    "Software development",
+    "Debugging",
+    "Linear algebra",
+    "Multi-threading"
+  ],
+  "preferredSkills": [
+    "Android",
+    "Embedded Linux",
+    "OpenCL",
+    "OpenGL ES",
+    "DSPs",
+    "TensorFlow",
+    "PyTorch"
+  ],
+  "experienceLevel": {
+    "years": "3+ years",
+    "seniority": null
+  },
+  "educationRequired": "Bachelor's degree",
+  "salaryRange": {
+    "min": null,
+    "max": null,
+    "currency": null
+  },
+  "responsibilities": [
+    "Own and deliver key aspects of the AI stack and provide solutions that make a difference",
+    "Coordinate development with various teams to ensure a cohesive product",
+    "Ability to work with larger teams to push an idea forward",
+    "Development of optimization algorithms for ML operators/layers for the Qualcomm AI SW stack",
+    "Development of AI SW stack framework enhancements for optimal resource usage while running a neural network on Qualcomm hardware",
+    "Development of software tools for profiling, and debugging to support rapid deployment of new neural networks in this fast changing field",
+    "Evaluating and optimizing neural networks runtime performance and accuracy",
+    "Working with customer teams to enable state of the art network models and new AI SW features to meet customer use-cases",
+    "Collaborating with AI hardware and architecture teams to continuously improve our AI solution",
+    "Being an active contributor to the development process to ensure commercial quality software releases",
+    "Participate in software quality process improvements"
+  ],
+  "companyResearch": {
+    "size": "10,000+",
+    "industry": "Manufacturing, Electronics, Business Services, Semiconductors, Electrical Engineering, Wireless Technology",
+    "recentNews": "Qualcomm Announces Fourth Quarter and Fiscal 2025 Results. —Total QCT Non-Apple Fiscal Year Revenues Grew 18% Year-Over-Year—. SAN DIEGO - November 5, 2025 - Qualcomm Incorporated (NASDAQ: QCOM) today announced results for its fiscal fourth quarter and year ended September 28, 2025. 'Our business remains strong as demonstrated by record QCT revenues in fiscal 2025,” said Cristiano Amon, President and CEO of Qualcomm Incorporated. Qualcomm Incorporated includes our licensing business, QTL, and the vast majority of our patent portfolio. Qualcomm Technologies, Inc., a subsidiary of Qualcomm Incorporated, operates, along with its subsidiaries, substantially all of our engineering and research and development functions and substantially all of our products and services businesses, including our QCT semiconductor business. Qualcomm Increases Quarterly Cash Dividend and Announces New $20 Billion Stock Repurchase Authoriza",
+    "cultureNotes": "Qualcomm is a company of inventors with diverse skills and backgrounds, who are driven to improve communication around the globe."
+  }
+}

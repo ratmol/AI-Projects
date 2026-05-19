@@ -1,0 +1,47 @@
+{
+  "jobTitle": "Junior Web Developer",
+  "companyName": "Abell Pest Control",
+  "location": "not listed",
+  "remoteStatus": "not listed",
+  "requiredSkills": [
+    ".NET",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "C#",
+    "MVC frameworks",
+    "TSQL",
+    "RESTful APIs",
+    "JSON"
+  ],
+  "preferredSkills": [
+    "Blazor",
+    "Web Assembly",
+    "ASP.Net Web Forms",
+    "Azure DevOps"
+  ],
+  "experienceLevel": {
+    "years": "1+ years",
+    "seniority": "junior"
+  },
+  "educationRequired": "College diploma or university degree in Computer Science or a related field",
+  "salaryRange": {
+    "min": 60000,
+    "max": 70000,
+    "currency": null
+  },
+  "responsibilities": [
+    " участвовать в разработке, внедрении и сопровождении веб-приложений Microsoft stack .Net для внутренних и внешних пользователей.",
+    "интегрировать веб-приложения с большой, хорошо зарекомендовавшей себя серверной базой данных.",
+    "интегрировать сторонние компоненты и библиотеки с нашими веб-решениями.",
+    "выполнять обновления веб-сайта в соответствии с указаниями для обеспечения функциональности и точности.",
+    "Выявлять проблемы, обнаруженные тестированием или отзывами клиентов, и решать их или передавать соответствующему персоналу.",
+    "Анализировать технические требования для определения потребностей пользователей и предоставления программных решений, которые соответствуют бизнес-целям."
+  ],
+  "companyResearch": {
+    "size": "Hundreds of employees",
+    "industry": "Pest Control Services",
+    "recentNews": null,
+    "cultureNotes": "Focus on quality service, staff expertise, image protection, and a return on your investment. Commitment to providing the highest quality pest control and related services."
+  }
+}

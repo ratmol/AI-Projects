@@ -1,0 +1,81 @@
+{
+  "hardSkills": [
+    "TypeScript",
+    "C++",
+    "JavaScript",
+    "PowerShell",
+    "SQL",
+    "HTML5/CSS3",
+    "LLM Architecture",
+    "Context Window Management",
+    "Tool Calling",
+    "Agentic Workflows",
+    "Token Pruning",
+    "Context Compression",
+    "Data Structures & Algorithms (DSA)",
+    "Big O Analysis",
+    "Balanced Trees (AVL, Red - Black)",
+    "Memory Management",
+    "Git",
+    "GitHub",
+    "Node.js",
+    "VS Code",
+    "Technical Documentation",
+    "Performance Benchmarking"
+  ],
+  "softSkills": [
+    "Communication",
+    "Troubleshooting",
+    "Support",
+    "Adaptive Learning",
+    "Leadership",
+    "Collaboration"
+  ],
+  "workExperience": [
+    {
+      "role": "Software Developer Intern",
+      "company": "Delo itte",
+      "durationMonths": 4,
+      "responsibilities": [
+        "Technical Implementation: Developed and maintained features using TypeScript, ensuring type - safety and reducing runtime errors.",
+        "Version Control & Collaboration: Managed complex codebase health using Git ; successfully resolved critical \"unrelated history\" merge conflicts and restored project integrity after directory failures.",
+        "Performance Optimization: Analyzed and optimized algorithm complexity using Big O notation , specifically focusing on tree structures (AVL/Red - Black) to improve data retrieval efficiency.",
+        "AI Research & Integration: Explored agentic workflows and context management for LLMs, implementing token pruning techniques to optimize model performance."
+      ]
+    },
+    {
+      "role": "Generative AI Development",
+      "company": "Seneca Polytechnic",
+      "durationMonths": null,
+      "responsibilities": [
+        "Architected a technical framework for context compression in LLMs, focusing on token pruning and intelligent summarization to reduce inference costs.",
+        "Developed custom tool - calling logic to enable AI agents to interact with external APIs and local file systems autonomously.",
+        "Conducted performance analysis on LLM response latency and accuracy across varying context window sizes."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Computer Programming",
+      "institution": "Seneca Polytechnic",
+      "year": "2026"
+    }
+  ],
+  "certifications": [],
+  "projects": [],
+  "keywords": [
+    "Large Language Model (LLM) architectures",
+    "data structures",
+    "TypeScript",
+    "Git version control",
+    "tool - calling implementation",
+    "algorithmic challenges",
+    "Generative AI",
+    "Context Compression",
+    "Token Pruning",
+    "AI agents",
+    "APIs",
+    "Technical Documentation",
+    "Performance Benchmarking"
+  ]
+}

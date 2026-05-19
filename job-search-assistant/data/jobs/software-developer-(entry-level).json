@@ -1,0 +1,37 @@
+{
+  "jobTitle": "Software Developer (Entry Level)",
+  "companyName": "Konrad",
+  "location": null,
+  "remoteStatus": "not listed",
+  "requiredSkills": [
+    "Programming",
+    "Computer science concepts",
+    "Web application understanding",
+    "Web principles (HTTP, DOM, SSL, web servers)",
+    "Databases (schema design, querying, optimization)",
+    "Interpersonal skills"
+  ],
+  "preferredSkills": [],
+  "experienceLevel": {
+    "years": null,
+    "seniority": "entry level"
+  },
+  "educationRequired": "Bachelor's degree",
+  "salaryRange": {
+    "min": 85000,
+    "max": 95000,
+    "currency": "CAD"
+  },
+  "responsibilities": [
+    "Write maintainable, testable, and performant software",
+    "Participate in code review and performing extensive testing",
+    "Research new technology and tools and share",
+    "Communicate clearly and effectively with all team members"
+  ],
+  "companyResearch": {
+    "size": "501-1,000 employees",
+    "industry": "Software Development",
+    "recentNews": "Conrad Industries Announces 2025 Results and Backlog: Such statements reflect our current views with respect to future events and are subject to certain risks, uncertainties and assumptions, including risks and uncertainties related to changes in steel prices, changes in other material and labor costs, changes in U.S. tariff and trade policies and the potential impact of such changes on our business, changes in inflation, labor and supply constraints, changes in interest rates, our reliance on cyclical industries, our reliance on principal customers and government contracts, including any funding limitations or other disruptions resulting from a government shutdown or policy changes, our ability to perform contracts at costs consistent with estimated costs utilized in bidding for our projects, our ability to timely complete projects, variations in quarterly revenues and earnings resulting from the percentage of completion accounting method, our customers' financial condition and risk o",
+    "cultureNotes": "Konrad is a digital agency and product innovation firm that offers strategy, design, and technology services to the world's most ambitious businesses and brands. Leveraging our design-driven approach to building cutting-edge digital solutions, we deliver compelling experiences to our clients and their customers."
+  }
+}

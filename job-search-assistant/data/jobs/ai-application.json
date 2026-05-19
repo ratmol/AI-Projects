@@ -1,0 +1,45 @@
+{
+  "jobTitle": "AI Application Manager",
+  "companyName": "LITENS AUTOMOTIVE GROUP",
+  "location": "Canada",
+  "remoteStatus": "not listed",
+  "requiredSkills": [
+    "AI",
+    "Computer vision",
+    "Predictive maintenance",
+    "Data acquisition",
+    "ERP",
+    "MES",
+    "OEMS",
+    "Quality compliance",
+    "Product Lifecycle Management",
+    "CAD/CAE Tools"
+  ],
+  "preferredSkills": [],
+  "experienceLevel": {
+    "years": null,
+    "seniority": null
+  },
+  "educationRequired": null,
+  "salaryRange": {
+    "min": null,
+    "max": null,
+    "currency": null
+  },
+  "responsibilities": [
+    "Develop an AI roadmap aligned with OEM requirements, engineering needs, and plant KPIs.",
+    "Evaluate emerging AI technologies relevant to automotive quality, traceability, and engineering workflows.",
+    "Lead end to end development of AI applications including: Computer vision for defect detection, weld inspection, assembly verification, and surface quality.",
+    "Oversee data acquisition from sensors, PLCs, MES, SCADA, and engineering systems.",
+    "Ensure seamless integration of AI tools with ERP, MES, QMS, PLM, CAD/CAE, and traceability platforms.",
+    "Collaborate with product engineering teams to embed AI into the product development lifecycle.",
+    "Support engineering systems such as: PLM (Product Lifecycle Management) CAD/CAE tools (e.g., CATIA, NX, SolidWorks, ANSYS)",
+    "Ensure AI tools support IATF 16949, APQP, PPAP, FMEA, MSA, and OEM specific quality requirements."
+  ],
+  "companyResearch": {
+    "size": "1,001-5,000",
+    "industry": "Motor Vehicle Manufacturing",
+    "recentNews": null,
+    "cultureNotes": "Our diverse and multicultural workplaces bring minds and talents together from across the world into a strong network of innovators and inventors. The automotive industry has limitless opportunities for developing ideas into reality, and we always encourage new concepts to be driven forward. If you have a passion for being a part of new ideas, are driven to excel in your field, and thrive in a supportive environment where inclusion, diversity and creative thinking are embraced - check out our career pages to find your fit with us!"
+  }
+}

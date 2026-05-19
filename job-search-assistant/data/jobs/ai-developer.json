@@ -1,0 +1,47 @@
+{
+  "jobTitle": "AI Developer ‒ LLM Integration & Java / Spring",
+  "companyName": "CGI",
+  "location": "Toronto, Canada",
+  "remoteStatus": "hybrid",
+  "requiredSkills": [
+    "AI / ML",
+    "LLM integration",
+    "Java",
+    "Spring Framework",
+    "Workflow automation",
+    "MLOps",
+    "CI / CD pipelines",
+    "Microservices architecture",
+    "Event-driven systems",
+    "Oracle databases"
+  ],
+  "preferredSkills": [
+    "Open-source AI projects",
+    "AI research publications"
+  ],
+  "experienceLevel": {
+    "years": "5+ Years",
+    "seniority": null
+  },
+  "educationRequired": null,
+  "salaryRange": {
+    "min": 80000,
+    "max": 115000,
+    "currency": "CAD"
+  },
+  "responsibilities": [
+    "Lead the design and development of AI-powered solutions, including AI agents, chatbots, and intelligent automation workflows.",
+    "Integrate LLMs (e.g., GPT, Cohere, or open-source models) into Java/Spring-based applications for NLP, decision-making, and predictive analytics.",
+    "Collaborate with cross-functional teams (developers, data scientists, product managers) to define AI strategy, roadmap, and technical requirements.",
+    "Optimize AI workflows for scalability, performance, and cost-efficiency, leveraging Oracle databases for data management.",
+    "Mentor junior developers and promote innovation in AI / ML practices.",
+    "Stay current with emerging AI technologies and assess their business applicability.",
+    "Ensure compliance with data privacy, security, and ethical AI standards."
+  ],
+  "companyResearch": {
+    "size": "94,000",
+    "industry": "IT Consulting and Outsourcing",
+    "recentNews": "CGI achieves AWS Premier Tier and SAP Competency Partner status, expanding its global AI-integrated cloud and data solutions to accelerate client transformation; CGI reports fourth quarter and Fiscal 2025 results; CGI advances in Partner Status with Snowflake, ServiceNow, and UiPath, accelerating client outcomes in AI, data and business automation; CGI positioned as a Leader in the IDC MarketScape for Worldwide AI Services for State and Local Government 2025; CGI to release fourth quarter and fiscal 2025 results on November 5; CGI to modernize Office of the Comptroller of the Currency’s digital services; CGI completes acquisition of Apside, a France-based digital and engineering services leader; CGI and Kesko enter strategic partnership to accelerate digital transformation; CGI reports third quarter Fiscal 2025 results; CGI SpeedOps launches to help clients accelerate business operations trans",
+    "cultureNotes": "CGI’s strong ownership culture"
+  }
+}
