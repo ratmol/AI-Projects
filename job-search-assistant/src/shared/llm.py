@@ -5,10 +5,6 @@ from typing import TypeVar, Any
 from openai import OpenAI
 from .logger import logger
 
-client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
-    api_key=os.environ.get("OPENROUTER_API_KEY") or (_ for _ in ()).throw(ValueError("Missing OPENROUTER_API_KEY")),
-)
 
 MODEL = "google/gemini-2.0-flash-001"
 
