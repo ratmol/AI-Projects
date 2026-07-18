@@ -1,10 +1,10 @@
-# vis-fix 🔧
+# vis-fix
 
-A command-line AI debugging assistant that takes a screenshot of an error and tells you how to fix it.
+A command line AI debugging assistant. Give it a screenshot of an error and it tells you how to fix it.
 
-Point it at any terminal output, IDE error, browser console, or stack trace. It reads the image, identifies the error, searches the web for up-to-date documentation when it spots version numbers or unfamiliar APIs, and gives you a clear explanation and a copy-pasteable fix.
+Point it at terminal output, an IDE error, a browser console, or a stack trace. It reads the image, works out what broke, searches the web for current documentation when it spots version numbers or unfamiliar APIs, and gives back an explanation plus a copy-pasteable fix.
 
----
+There's also a [web version](../vis-fix-web) with streaming output and a proper multi-tool-call loop.
 
 ## Demo
 
@@ -24,26 +24,21 @@ python -m src.main error.png
 The error is happening because `data` is undefined on the first render...
 ```
 
----
+## How it works
 
-## How It Works
+1. The image is resized to fit within 1024x1024 and compressed before it goes to the model, which keeps latency and cost down.
+2. The model reads the screenshot and identifies the error, the framework, and any version numbers.
+3. If anything looks version specific or potentially out of date, it calls the `web_search` tool on its own.
+4. It explains the root cause and gives a fix grounded in current documentation.
 
-1. The image is resized to fit within 1024×1024 and compressed before being sent to the model — keeping latency and costs low
-2. The model examines the screenshot and identifies the error, framework, and version numbers
-3. If anything looks version-specific or potentially outdated, it calls the `web_search` tool automatically
-4. It explains the root cause and gives a fix grounded in current documentation
+## Tech stack
 
----
+Python 3.11+, with:
 
-## Tech Stack
-
-- **Python 3.11+**
-- **OpenAI SDK** — pointed at [OpenRouter](https://openrouter.ai) for multimodal model access
-- **Pillow** — image resizing and JPEG compression before API submission
-- **httpx** — async HTTP for Tavily search
-- **Tavily** — real-time web search tool
-
----
+* OpenAI SDK, pointed at [OpenRouter](https://openrouter.ai) for multimodal model access
+* Pillow for image resizing and JPEG compression before the API call
+* httpx for async HTTP against Tavily
+* Tavily for the web search tool
 
 ## Setup
 
@@ -57,38 +52,36 @@ OPENROUTER_API_KEY=your_key_here
 TAVILY_API_KEY=your_key_here
 ```
 
----
-
 ## Usage
 
 ```bash
-# Basic usage
+# basic
 python -m src.main screenshot.png
 
-# With a custom prompt
+# with a custom prompt
 python -m src.main error.png "Why is my Docker build failing here?"
 
-# Save the fix to a file (debug logs go to stderr, answer goes to stdout)
+# save the fix (debug logs go to stderr, the answer goes to stdout)
 python -m src.main error.png > fix.md
 ```
 
----
-
-## Project Structure
+## Project structure
 
 ```
 vis-fix/
 ├── src/
-│   ├── main.py               # Entry point — orchestrates the full flow
-│   ├── image_processor.py    # Resize + base64 encode images via Pillow
-│   ├── tools.py              # Tool schema + Tavily web search implementation
-│   └── system_prompt.py      # System prompt for the debugging assistant
+│   ├── main.py               # entry point, orchestrates the full flow
+│   ├── image_processor.py    # resize + base64 encode via Pillow
+│   ├── tools.py              # tool schema + Tavily web search
+│   └── system_prompt.py      # system prompt for the assistant
 ├── requirements.txt
 └── .env.example
 ```
 
----
-
 ## Model
 
-Uses `google/gemini-3-flash-preview` via OpenRouter by default. You can swap it for any multimodal model (GPT-4o, Claude 3.5 Sonnet, etc.) by changing `MODEL` in `src/main.py`.
+Defaults to `google/gemini-3-flash-preview` through OpenRouter. Swap in any multimodal model (GPT-4o, Claude, whatever) by changing `MODEL` in `src/main.py`.
+
+## Known limitation
+
+This version only handles the first tool call the model requests. If it wants a second search before answering, that request is dropped and the answer comes back less researched than it should be. The [web version](../vis-fix-web) fixes this with a proper loop.

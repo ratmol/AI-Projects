@@ -1,12 +1,10 @@
-# media-utils 📦
+# media-utils
 
-A small Python utility library for encoding media files to Data URIs and decoding them back to raw bytes. Zero external dependencies beyond Pydantic.
+A small Python library for encoding media files to Data URIs and decoding them back to raw bytes. Pydantic is the only dependency.
 
-Useful for embedding images, audio, or video directly in JSON payloads, LLM API requests, or HTML — without needing a file server or CDN.
+Handy for embedding images, audio or video directly in JSON payloads, LLM API requests, or HTML, without standing up a file server or CDN.
 
----
-
-## Supported Formats
+## Supported formats
 
 | Category | Formats |
 |---|---|
@@ -14,11 +12,9 @@ Useful for embedding images, audio, or video directly in JSON payloads, LLM API 
 | Audio | MP3, WAV, OGG |
 | Video | MP4, WebM |
 
----
-
 ## Usage
 
-### Encode a file from disk
+Encode a file from disk:
 
 ```python
 from src import encode_file
@@ -31,7 +27,7 @@ print(uri.category)   # image
 print(uri.base64)     # raw base64 string
 ```
 
-### Encode raw bytes
+Encode raw bytes:
 
 ```python
 from src import encode_buffer
@@ -43,7 +39,7 @@ uri = encode_buffer(data, "audio/mpeg")
 print(uri.raw)  # data:audio/mpeg;base64,...
 ```
 
-### Parse a Data URI string
+Parse a Data URI string:
 
 ```python
 from src import parse_data_uri
@@ -53,7 +49,7 @@ print(uri.category)   # image
 print(uri.mediaType)  # image/jpeg
 ```
 
-### Decode back to bytes or a file
+Decode back to bytes or straight to a file:
 
 ```python
 from src import decode_to_buffer, decode_to_file
@@ -63,23 +59,19 @@ raw_bytes = decode_to_buffer("data:image/png;base64,...")
 decode_to_file("data:image/png;base64,...", "output.png")
 ```
 
----
-
 ## API
 
 | Function | Description |
 |---|---|
-| `encode_file(path)` | Read a file from disk → `DataURI` |
-| `encode_buffer(data, mime_type)` | Encode raw bytes → `DataURI` |
-| `parse_data_uri(uri)` | Parse a Data URI string → `DataURI` |
-| `decode_to_buffer(uri)` | Data URI string → `bytes` |
-| `decode_to_file(uri, path)` | Data URI string → file on disk |
+| `encode_file(path)` | Read a file from disk, returns `DataURI` |
+| `encode_buffer(data, mime_type)` | Encode raw bytes, returns `DataURI` |
+| `parse_data_uri(uri)` | Parse a Data URI string, returns `DataURI` |
+| `decode_to_buffer(uri)` | Data URI string to `bytes` |
+| `decode_to_file(uri, path)` | Data URI string to a file on disk |
 
-All functions raise descriptive `ValueError` or `FileNotFoundError` on bad input — no silent failures.
+Bad input raises `ValueError` or `FileNotFoundError` with a description of what went wrong. Nothing fails silently.
 
----
-
-## The `DataURI` Model
+## The DataURI model
 
 ```python
 class DataURI(BaseModel):
@@ -89,24 +81,20 @@ class DataURI(BaseModel):
     raw: str         # full data URI string
 ```
 
----
-
 ## Setup
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Or just copy the `src/` folder into your project — the only dependency is Pydantic.
+Or just copy the `src/` folder into your project. Pydantic is the only thing it needs.
 
----
-
-## Project Structure
+## Project structure
 
 ```
 media-utils/
 ├── src/
-│   ├── __init__.py   # Public exports
+│   ├── __init__.py   # public exports
 │   ├── types.py      # DataURI model, MIME type map, helpers
 │   ├── encode.py     # encode_file, encode_buffer
 │   └── decode.py     # parse_data_uri, decode_to_buffer, decode_to_file

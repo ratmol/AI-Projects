@@ -1,43 +1,35 @@
-# Job Search Assistant 🔍
+# Job Search Assistant
 
-An AI-powered job search pipeline that analyzes job postings, compares them against your resume, and generates tailored application reports — all from PDFs, fully automated.
+An AI job search pipeline that reads job postings, compares them against your resume, and writes tailored application reports. Everything runs off PDFs.
 
-Built with Python, OpenAI SDK, and Pydantic. Uses OpenRouter to access Gemini/GPT-4/Claude interchangeably.
+Built with Python, the OpenAI SDK and Pydantic, using OpenRouter so Gemini, GPT-4 and Claude are interchangeable.
 
----
+## What it does
 
-## What It Does
+Three phases, run independently.
 
-This tool runs in three phases:
+**Phase 1, market analysis.** Drop job posting PDFs into `data/raw/`. Each one gets parsed into structured data (skills, salary, experience requirements, company info) by an LLM, then rolled up into a market wide report covering trends, the most requested skills, and salary ranges.
 
-**Phase 1 — Market Analysis**
-Drop job posting PDFs into `data/raw/`. The tool extracts structured data from each one (skills, salary, experience requirements, company info) using an LLM, then generates a market-wide report summarizing trends, most-wanted skills, and salary ranges.
+**Phase 2, gap analysis.** Point it at your resume PDF. It pulls out your skills, experience and projects, compares them against the market data, and produces a prioritized gap report split into quick wins, short term goals and long term targets.
 
-**Phase 2 — Gap Analysis**
-Point it at your resume PDF. It parses your skills, experience, and projects, then compares them against the market data and produces a prioritized gap report — triaged into quick wins, short-term goals, and long-term targets.
+**Phase 3, application advisor.** Give it a single job posting PDF and it returns a full application report: a fit score out of 100, resume tailoring suggestions for that specific role, cover letter guidance, and interview questions drawn from the actual posting.
 
-**Phase 3 — Application Advisor**
-Pass any job posting PDF and get a full application report: a 0–100% fit score, resume tailoring suggestions for that specific role, cover letter guidance, and interview prep questions drawn from the actual posting.
+## Tech stack
 
----
+Python 3.11+, with:
 
-## Tech Stack
-
-- **Python 3.11+**
-- **OpenAI SDK** — pointed at [OpenRouter](https://openrouter.ai) for model flexibility
-- **Pydantic v2** — structured data validation for LLM outputs
-- **pypdf** — local PDF text extraction
-- **httpx** — async HTTP client
-- **Tavily** — real-time web search for company research
-
----
+* OpenAI SDK, pointed at [OpenRouter](https://openrouter.ai) for model flexibility
+* Pydantic v2 for validating LLM output into structured data
+* pypdf for local PDF text extraction
+* httpx as the async HTTP client
+* Tavily for company research via web search
 
 ## Setup
 
 ```bash
 pip install -r requirements.txt
 cp .env.example .env
-# Fill in your keys
+# fill in your keys
 ```
 
 ```env
@@ -46,55 +38,49 @@ TAVILY_API_KEY=your_key_here
 LOG_LEVEL=info
 ```
 
----
-
 ## Usage
 
 ```bash
-# Phase 1 — extract job postings and generate market report
+# phase 1: extract job postings and generate the market report
 python -m src.extract.market
 
-# Phase 2 — parse resume and generate gap analysis
+# phase 2: parse the resume and generate the gap analysis
 python -m src.analysis.gaps
 
-# Phase 3 — score fit and generate application report for a specific role
+# phase 3: score fit and write the application report for one role
 python -m src.advisor.advise data/raw/job-posting.pdf
 ```
 
----
-
-## Project Structure
+## Project structure
 
 ```
 job-search-assistant/
 ├── src/
 │   ├── shared/
 │   │   ├── llm.py            # OpenRouter client, chat_json / chat_text helpers
-│   │   ├── schemas.py        # Pydantic models — JobPosting, Resume, etc.
+│   │   ├── schemas.py        # Pydantic models: JobPosting, Resume, etc.
 │   │   ├── pdf_extract.py    # PDF text extraction (local + URL via Jina)
 │   │   ├── search.py         # Tavily web search wrapper
-│   │   └── logger.py         # Lightweight stderr logger
+│   │   └── logger.py         # lightweight stderr logger
 │   ├── extract/
 │   │   ├── extract_job.py    # LLM-based job posting parser
-│   │   └── market.py         # Phase 1 entry point
+│   │   └── market.py         # phase 1 entry point
 │   ├── analysis/
-│   │   └── gaps.py           # Phase 2 entry point
+│   │   └── gaps.py           # phase 2 entry point
 │   └── advisor/
-│       └── advise.py         # Phase 3 entry point + fit scoring logic
+│       └── advise.py         # phase 3 entry point + fit scoring
 ├── data/
-│   ├── raw/                  # Drop PDFs here
-│   ├── jobs/                 # Extracted job JSON (auto-generated)
-│   └── resume/               # Extracted resume JSON (auto-generated)
-├── reports/                  # Generated Markdown reports
+│   ├── raw/                  # drop PDFs here
+│   ├── jobs/                 # extracted job JSON (generated)
+│   └── resume/               # extracted resume JSON (generated)
+├── reports/                  # generated Markdown reports
 ├── requirements.txt
 └── .env.example
 ```
 
----
+## Fit scoring
 
-## Fit Scoring
-
-The advisor scores your fit for a role using three weighted factors:
+Three weighted factors:
 
 | Factor | Weight |
 |---|---|
@@ -102,9 +88,11 @@ The advisor scores your fit for a role using three weighted factors:
 | Preferred skills matched | 20% |
 | Years of experience | 10% |
 
+Which maps to:
+
 | Score | Label |
 |---|---|
-| ≥ 80% | 🟢 Strong Fit |
-| ≥ 50% | 🟡 Good Fit |
-| ≥ 30% | 🟠 Stretch Role |
-| < 30% | 🔴 Growth Target |
+| 80% and up | Strong fit |
+| 50% to 79% | Good fit |
+| 30% to 49% | Stretch role |
+| Under 30% | Growth target |
