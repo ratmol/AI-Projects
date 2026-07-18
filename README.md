@@ -1,67 +1,69 @@
-# AI Projects 
+# AI Projects
 
-A collection of AI-powered Python projects built with LLMs, computer vision, and real-time web search. Each project is a standalone tool that solves a real problem using modern AI APIs.
-
----
+A collection of Python projects built on LLMs, vision models and real-time web search. Each one is a standalone tool that solves an actual problem rather than a demo.
 
 ## Projects
 
-### 🔍 [Job Search Assistant](./job-search-assistant)
-An end-to-end job search pipeline that extracts structured data from job posting PDFs, analyzes your resume against the market, and generates tailored application reports with fit scores, resume tips, and interview prep.
+### [Job Search Assistant](./job-search-assistant)
 
-**Key features:**
-- Parses job postings and resumes from PDF using an LLM
-- Generates a market-wide skills and salary trend report
-- Scores your fit for any role (0–100%) across required skills, preferred skills, and experience
-- Produces tailored cover letter guidance and interview questions per posting
-- Real-time company research via web search
+A job search pipeline that pulls structured data out of job posting PDFs, measures your resume against the market, and writes tailored application reports with fit scores, resume tips and interview prep.
 
-**Stack:** Python · OpenAI SDK · Pydantic v2 · pypdf · Tavily · OpenRouter
+* Parses job postings and resumes from PDF using an LLM
+* Generates a market wide skills and salary trend report
+* Scores your fit for a role from 0 to 100 across required skills, preferred skills and experience
+* Produces cover letter guidance and interview questions for a specific posting
+* Company research through live web search
 
----
+Stack: Python, OpenAI SDK, Pydantic v2, pypdf, Tavily, OpenRouter
 
-### 🔧 [vis-fix](./vis-fix)
-A command-line debugging assistant that takes a screenshot of an error and tells you how to fix it. Works with terminal output, IDE errors, browser consoles, and stack traces.
+### [vis-fix](./vis-fix)
 
-**Key features:**
-- Accepts any screenshot as input — no copy-pasting error text
-- Automatically searches the web when it detects version numbers or unfamiliar APIs
-- Compresses images before sending to keep latency and API costs low
-- Outputs a structured explanation and a copy-pasteable fix
+A command line debugging assistant. Give it a screenshot of an error and it tells you how to fix it. Works with terminal output, IDE errors, browser consoles and stack traces.
 
-**Stack:** Python · OpenAI SDK · Pillow · Tavily · OpenRouter
+* Takes any screenshot as input, so there is no copy-pasting error text
+* Searches the web on its own when it spots version numbers or unfamiliar APIs
+* Compresses images before sending them, which keeps latency and API cost down
+* Returns an explanation plus a copy-pasteable fix
 
----
+Stack: Python, OpenAI SDK, Pillow, Tavily, OpenRouter
 
-### 📦 [media-utils](./media-utils)
-A lightweight utility library for encoding media files (images, audio, video) to Data URIs and decoding them back to raw bytes. Useful for embedding media in JSON payloads or LLM API requests without a file server.
+### [vis-fix-web](./vis-fix-web)
 
-**Key features:**
-- Encode files from disk or raw bytes to Data URIs
-- Decode Data URIs back to bytes or write directly to a file
-- Supports PNG, JPEG, GIF, WebP, SVG, MP3, WAV, OGG, MP4, WebM
-- Fully validated with Pydantic — no silent failures
+The web version of vis-fix. Paste a screenshot from the clipboard and watch the agent work through it in real time.
 
-**Stack:** Python · Pydantic v2
+* Streams over SSE, so you see compression stats, each web search as it fires, then the answer token by token
+* Fixes the CLI's single-tool-call limitation with a proper loop, capped at 5 rounds
+* Renders a live timing waterfall of the pipeline, drawn like a browser network panel
+* Rate limited, size capped and image validated, since it is meant to be exposed publicly
+* Ships as one Docker service, deployable free on Render or Railway
 
----
+Stack: Python, FastAPI, React, Vite, Tailwind, OpenRouter, Tavily
+
+### [media-utils](./media-utils)
+
+A small library for encoding media files (images, audio, video) to Data URIs and decoding them back to bytes. Useful for embedding media in JSON payloads or LLM API requests without standing up a file server.
+
+* Encode from disk or from raw bytes
+* Decode back to bytes or straight to a file
+* Handles PNG, JPEG, GIF, WebP, SVG, MP3, WAV, OGG, MP4, WebM
+* Validated with Pydantic, so nothing fails silently
+
+Stack: Python, Pydantic v2
 
 ## Setup
 
-Each project has its own `requirements.txt` and `.env.example`. Navigate into any project folder and follow its README to get started.
+Each project has its own `requirements.txt` and `.env.example`. Go into the folder you want and follow its README.
 
 ```bash
 cd job-search-assistant
 pip install -r requirements.txt
 cp .env.example .env
-# Add your API keys to .env
+# add your API keys to .env
 ```
 
----
+## API keys
 
-## API Keys Needed
-
-| Service | Used By | Get It |
+| Service | Used by | Where to get it |
 |---|---|---|
-| OpenRouter | job-search-assistant, vis-fix | [openrouter.ai/keys](https://openrouter.ai/keys) |
-| Tavily | job-search-assistant, vis-fix | [app.tavily.com](https://app.tavily.com) |
+| OpenRouter | job-search-assistant, vis-fix, vis-fix-web | [openrouter.ai/keys](https://openrouter.ai/keys) |
+| Tavily | job-search-assistant, vis-fix, vis-fix-web | [app.tavily.com](https://app.tavily.com) |
