@@ -1,0 +1,174 @@
+@import "tailwindcss";
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/jetbrains-mono";
+
+/* ============================================================
+   DESIGN TOKENS — see ../../DESIGN.md before changing anything.
+   Raw hex appears ONLY in this block. Everything else uses vars.
+   ============================================================ */
+@theme {
+  /* --- surfaces: 3 lifts, no more --- */
+  --color-surface: #0a0c0d; /* substrate */
+  --color-raised: #111416;  /* panels */
+  --color-line: #1e2427;    /* hairline rules */
+
+  /* --- text: 2 weights of presence --- */
+  --color-text: #e6e8e7;
+  --color-muted: #7d8a8c;
+
+  /* --- the one accent: used as a flashlight, never as decoration --- */
+  --color-signal: #ffb454;
+
+  /* --- signal states: DATA ENCODING, not brand color.
+         A debugging tool that cannot render pass/fail is a worse tool. --- */
+  --color-ok: #6fbf8a;
+  --color-alert: #e2685c;
+
+  /* --- type: display pairs with mono; never one font for both --- */
+  --font-display: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, Menlo, Consolas, monospace;
+
+  /* --- one radius, applied with intent (controls + panels only) --- */
+  --radius-instrument: 3px;
+}
+
+/* Spacing: the default 4px scale is the ONLY scale in use.
+   Permitted steps: 1 2 3 4 6 8 12 16 (=4px…64px). No arbitrary values. */
+
+html {
+  background: var(--color-surface);
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-mono);
+  color: var(--color-text);
+  /* No gradient, no texture, no glow. The substrate is flat on purpose. */
+  background: var(--color-surface);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-signal) 30%, transparent);
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-signal);
+  outline-offset: 2px;
+}
+
+/* Display type: tight negative tracking at large sizes (Linear), low weight
+   band — never bold-by-reflex. */
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.028em;
+}
+
+/* Small mono labels get positive tracking to stay legible on dark (Raycast). */
+.label {
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ---- the one motion in the system: a waterfall row arriving ----
+   Linear ease, 140ms. No bounce, no elastic, no stagger-everything. */
+@keyframes rowIn {
+  from { opacity: 0; transform: translateY(2px); }
+  to   { opacity: 1; transform: none; }
+}
+.row-in { animation: rowIn 140ms linear both; }
+
+/* The single live indicator: the currently-running bar breathes.
+   Opacity only — cheap, and reads as "still measuring". */
+@keyframes measuring {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+.measuring { animation: measuring 1.1s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .row-in, .measuring { animation: none; }
+}
+
+/* ============================================================
+   Answer body: prose in the display face, code in mono.
+   This is the Warp tension — readable shell around monospace data.
+   ============================================================ */
+.answer {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+.answer h1, .answer h2, .answer h3 {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 2em 0 0.75em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--color-line);
+}
+.answer h1:first-child, .answer h2:first-child, .answer h3:first-child { margin-top: 0; }
+.answer p { margin: 0.75em 0; }
+.answer ul, .answer ol { margin: 0.75em 0; padding-left: 1.5em; }
+.answer li { margin: 0.35em 0; }
+.answer li::marker { color: var(--color-signal); }
+.answer a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: var(--color-signal);
+  text-underline-offset: 3px;
+}
+/* weight alone carries emphasis — no extra colour needed */
+.answer strong { font-weight: 600; color: var(--color-text); }
+.answer blockquote {
+  border-left: 2px solid var(--color-line);
+  padding-left: 1em;
+  margin: 1em 0;
+  color: var(--color-muted);
+}
+.answer code {
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  padding: 0.1em 0.35em;
+  color: var(--color-signal);
+}
+.answer pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.76rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+.answer table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+}
+.answer th, .answer td {
+  border: 1px solid var(--color-line);
+  padding: 0.45em 0.75em;
+  text-align: left;
+}
+.answer th { color: var(--color-muted); font-weight: 500; }
+
+/* ---- syntax highlighting: derived from the token set, not a theme dump.
+   Only 4 hues carry meaning; everything else is plain text. ---- */
+.hljs-comment, .hljs-quote { color: var(--color-muted); font-style: italic; }
+.hljs-string, .hljs-attr, .hljs-addition { color: var(--color-ok); }
+.hljs-number, .hljs-literal, .hljs-keyword, .hljs-selector-tag, .hljs-tag {
+  color: var(--color-signal);
+}
+.hljs-deletion { color: var(--color-alert); }
+.hljs-title, .hljs-name, .hljs-built_in, .hljs-type, .hljs-section,
+.hljs-variable, .hljs-params, .hljs-meta { color: var(--color-text); }
