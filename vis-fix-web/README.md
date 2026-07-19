@@ -19,7 +19,8 @@ Both are fixed. The loop keeps executing tool calls until the model stops asking
 ## What you get
 
 * Paste from the clipboard, drag and drop, or click one of three bundled example errors. Paste matters most, since that's how you actually take a screenshot.
-* A live timing waterfall of the pipeline, drawn like a browser network panel. Every step is positioned by when it started and sized by how long it took, from real measurements.
+* Press analyze and the page moves you to the result: a progress bar carries the wait while the model thinks, each step appears as it happens, and the answer streams in when it is ready.
+* A trace of what the agent actually did, with real measured durations per step, kept below the answer so it informs without getting in the way.
 * Markdown rendering as the answer streams, with syntax highlighted code blocks and copy buttons.
 * Per IP rate limiting (5 requests per 15 minutes), a 5 MB upload cap, image validation at the byte level with a 40 megapixel ceiling, and server side downscaling to 1024px.
 * Nothing is written to disk. The screenshot is processed in memory and sent once to the model.

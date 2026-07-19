@@ -55,19 +55,26 @@ export default function DropZone({ preview, onSelect, disabled }: Props) {
       >
         {preview ? (
           <span className="block space-y-2">
-            {/* data marks stay sharp — no radius on the image */}
-            <img src={preview} alt="selected screenshot" className="w-full border border-line" />
-            <span className="block font-mono text-[10px] text-muted">
+            {/* data marks stay sharp, no radius on the image */}
+            <img
+              src={preview}
+              alt="selected screenshot"
+              className="max-h-[420px] w-full border border-line object-contain"
+            />
+            <span className="block text-center font-mono text-[10px] text-muted">
               click, drop or paste to replace
             </span>
           </span>
         ) : (
-          <span className="block space-y-1.5 py-12 text-center">
-            <span className="block font-mono text-[12px] text-text">
+          <span className="flex min-h-[300px] flex-col items-center justify-center gap-2 text-center">
+            <span className="font-mono text-[13px] text-text">
               drop a screenshot of the error
             </span>
-            <span className="block font-mono text-[10px] text-muted">
-              paste works too — <kbd className="text-signal">ctrl+v</kbd>
+            <span className="font-mono text-[11px] text-muted">
+              or paste from the clipboard <kbd className="text-signal">ctrl+v</kbd>
+            </span>
+            <span className="mt-1 font-mono text-[10px] text-muted/70">
+              png, jpg or webp, up to 5 MB
             </span>
           </span>
         )}

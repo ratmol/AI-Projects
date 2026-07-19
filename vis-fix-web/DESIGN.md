@@ -73,35 +73,60 @@ controls, because the research on Linear and Raycast puts compact control
 padding at 8 to 12px and whole steps alone are too coarse there. Everything
 structural uses whole steps.
 
-Two arbitrary values are deliberate: the waterfall grid track definition, since
-a data table needs explicit column widths, and the small type sizes, which
-belong to the type scale rather than the spacing scale.
+A few arbitrary values are deliberate: the reserved scroll height on the
+results section (`calc(100vh-5rem)`, explained under the signature), the
+screenshot preview caps, and the small type sizes, which belong to the type
+scale rather than the spacing scale.
 
 ## Radius
 
 One value, `--radius-instrument: 3px`, applied with intent. Controls and input
-panels only. Data marks stay sharp: the waterfall bars, the screenshot preview,
-example thumbnails and output panels all have square corners. Rounding
-everything by reflex is exactly what this rule exists to prevent.
+panels only. Data marks stay sharp: the screenshot preview, the trace rail and
+its dots, and the panels inside the result card all have square corners.
+Rounding everything by reflex is exactly what this rule exists to prevent.
 
-## The signature: the timing waterfall
+## The signature: the reveal
 
-`components/Waterfall.tsx`. One memorable moment, with everything else
-deliberately quiet so it reads.
+One orchestrated sequence, everything else deliberately still. The moment this
+product is remembered for is what happens after you press analyze.
 
-The agent pipeline is drawn the way a browser network panel or a logic analyser
-draws one. Every step is positioned by when it started and sized by how long it
-took, from real `performance.now()` measurements. The running bar breathes at
-1.1s until its duration is known. Steps arrive on a 140ms linear fade, with no
-bounce, no elastic and no stagger everything.
+The page starts as input only. There is no empty results panel and no
+placeholder, because an empty box promising future content is dead weight. When
+a run starts, the results panel mounts and rises in over 260ms, the page scrolls
+to bring it to the top, an indeterminate bar carries the wait while the model is
+still thinking, and steps appear as they actually happen. The bar stops the
+instant the first token lands, and from there the answer streams in.
 
-Color in the waterfall is data, not decoration:
+Four parts, one sequence, defined together in `index.css` under THE SIGNATURE:
 
-* normal work uses `signal` at full strength
-* web search uses `signal` at 45%, so external I/O reads lighter
-* failure uses `alert`
+1. `.reveal`, the results panel arriving
+2. `.bar-indeterminate`, carrying the wait
+3. `.step-in`, each step as it happens
+4. `.pulse`, the marker on the step currently running
 
-This is the only animation in the product. Do not add a second one.
+Two implementation notes that are easy to lose:
+
+* The results section reserves `min-h-[calc(100vh-5rem)]`. Without it the
+  browser clamps the scroll, because at the moment the run starts the page is
+  not yet tall enough to bring the panel to the top.
+* The scroll uses `behavior: "smooth"` only when the user has not asked for
+  reduced motion, and all four animations are disabled under
+  `prefers-reduced-motion`.
+
+Do not add a second animated moment somewhere else in the UI. Extending this
+sequence is fine. Competing with it is not.
+
+## Trace, deliberately quiet
+
+`components/Trace.tsx` reports what the agent did as a plain list on a vertical
+rail, the way a CI job reports itself: a state dot, the label, the duration. It
+sits below the diagnosis and is secondary on purpose. It answers "what did it
+do" without competing with the answer for attention.
+
+An earlier version drew this as a timing waterfall, positioned and sized like a
+browser network panel. It was accurate and it looked impressive, but reading a
+chart is work, and the answer is what people came for. Measured durations are
+still shown, just as numbers rather than geometry.
 
 ## Banned
 
@@ -110,7 +135,11 @@ Never introduce these, even when they look fine in isolation:
 * purple to blue or purple to cyan gradients, gradient text
 * glassmorphism (blur plus transparency plus border) as a card style
 * icon, title and blurb feature grids in threes, centered
-* `01 / 02 / 03` markers unless the thing is genuinely sequential
+* `01 / 02 / 03` markers unless the thing is genuinely sequential. This
+  exception is currently exercised once, in `components/HowItWorks.tsx`: the
+  pipeline really does run compress, read, search, fix in that order, and the
+  numbers are what make the ordering readable. It is not a licence to number
+  anything else.
 * bounce or elastic easing, fade up on scroll on everything
 * marketing voice: "seamless", "empower", "modern workflow"
 * neon glow as an accent treatment
@@ -118,17 +147,28 @@ Never introduce these, even when they look fine in isolation:
 
 ## Removed on purpose
 
-An earlier pass had a boot sequence, a typewriter hero, blinking carets, glow
+An early pass had a boot sequence, a typewriter hero, blinking carets, glow
 text shadows, CRT scanlines, an amber radial gradient and fake macOS traffic
 lights. All cut. They were theatre, decoration imitating a terminal rather than
 the product doing real work. The fake window chrome was replaced by a real
 statusline (`components/StatusLine.tsx`) where every field reports actual
 state: model, run phase, rate limit.
 
+A later pass also removed:
+
+* **The timing waterfall.** See the trace section above. Charts make the reader
+  work, and the diagnosis should be the thing that arrives.
+* **The "no run yet" placeholder.** A large empty panel sitting there before
+  anything has happened is a promise the page has not earned. Results now
+  simply appear.
+* **The two column layout.** With no placeholder to fill, the right column was
+  empty half the time. One column at `max-w-3xl` reads better for prose and
+  lets the screenshot area be genuinely large.
+
 ## Checklist before shipping a UI change
 
-1. Cover the wordmark. Is it still obviously a debugging tool? The waterfall
-   and the mono data grid should carry that on their own.
+1. Cover the wordmark. Is it still obviously a debugging tool? The mono type,
+   the statusline and the trace should carry that on their own.
 2. Did any banned pattern come back?
 3. Is there still exactly one animated moment?
 4. Any raw hex outside the `@theme` block, or any spacing value off the scale?
