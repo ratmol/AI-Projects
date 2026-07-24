@@ -117,11 +117,10 @@ Free tier on Render:
 |---|---|---|
 | `OPENROUTER_API_KEY` | yes | model access, https://openrouter.ai/keys |
 | `TAVILY_API_KEY` | no | web search. Without it the agent answers from model knowledge and says so |
-| `VISFIX_MODEL` | no | primary model, must accept images. Defaults to `google/gemma-4-26b-a4b-it:free` |
-| `VISFIX_FALLBACK_MODEL` | no | tried when the primary errors or is rate limited. Defaults to `nvidia/nemotron-nano-12b-v2-vl:free` |
+| `VISFIX_MODELS` | no | comma-separated model chain, primary first. All must accept images. |
 | `VISFIX_RATE_LIMIT` | no | defaults to `5/15 minutes` |
 
-Both model defaults are free and vision-capable, picked from two different providers so the free-tier rate limit on one does not take the app down. Free model slugs change, so confirm them on [openrouter.ai/models](https://openrouter.ai/models) before deploying. Any paid vision model (Gemini, GPT-4o, Claude) works too, just set `VISFIX_MODEL`.
+The default chain is three free, vision-capable models spread across providers, so the free-tier rate limit on one does not take the app down. OpenRouter walks the list on error or rate limit; if every model is exhausted the request fails cleanly rather than routing to a paid model. Free model slugs change, so confirm them on [openrouter.ai/models](https://openrouter.ai/models) before deploying. Any paid vision model (Gemini, GPT-4o, Claude) works too, just put it first in `VISFIX_MODELS`.
 
 Railway works the same way. Deploy from GitHub repo, it picks up the Dockerfile, add the same variables.
 
