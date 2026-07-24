@@ -43,6 +43,8 @@ async def run_analysis(image_b64: str, mime: str, user_prompt: str) -> AsyncGene
             # tools stays in every request (the history references them);
             # tool_choice="none" is what actually forces the final answer.
             allow_tools = iteration < settings.MAX_TOOL_ITERATIONS
+            # `model` is the primary; OpenRouter's `models` array is what makes
+            # it fall back to the next one on error or rate limit.
             stream = await client.chat.completions.create(
                 model=settings.MODEL,
                 max_tokens=2048,
@@ -50,6 +52,7 @@ async def run_analysis(image_b64: str, mime: str, user_prompt: str) -> AsyncGene
                 stream=True,
                 tools=TOOLS,
                 tool_choice="auto" if allow_tools else "none",
+                extra_body={"models": settings.MODELS} if len(settings.MODELS) > 1 else {},
             )
 
             # Streaming splits tool calls into deltas keyed by index;
