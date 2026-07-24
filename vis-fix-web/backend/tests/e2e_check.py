@@ -37,7 +37,6 @@ from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
 from PIL import Image
 
-from app import settings  # noqa: E402
 from app.main import app  # noqa: E402  (env must be set before this import)
 
 # ---------- mock OpenRouter ----------
@@ -260,12 +259,6 @@ async def run_checks() -> None:
         compressed = events[0][1]
         assert max(compressed["width"], compressed["height"]) <= 1024, compressed
         print("ok: agent loop with 2 tool rounds, streaming, compression")
-
-        # config endpoint exposes the model list the UI reads (no key leaked)
-        cfg = (await client.get("/api/config")).json()
-        assert cfg["models"] == settings.MODELS and cfg["models"], cfg
-        assert "OPENROUTER_API_KEY" not in str(cfg)
-        print(f"ok: /api/config reports {len(cfg['models'])} model(s)")
 
     # 2) each bundled example returns its own answer, and does so repeatably.
     # One source IP per example keeps all of this under the per-IP limit.

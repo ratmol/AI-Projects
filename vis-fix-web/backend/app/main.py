@@ -48,13 +48,6 @@ async def health():
     return {"status": "ok"}
 
 
-@app.get("/api/config")
-async def config():
-    """Public, non-secret runtime config so the UI reflects the real model
-    instead of a hardcoded name."""
-    return {"models": settings.MODELS}
-
-
 @app.post("/api/analyze")
 @limiter.limit(settings.RATE_LIMIT)
 async def analyze(request: Request, file: UploadFile, prompt: str = Form("")):

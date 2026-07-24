@@ -23,19 +23,9 @@ export default function App() {
   const [answer, setAnswer] = useState("");
   const [note, setNote] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
-  const [models, setModels] = useState<string[]>([]);
   const startRef = useRef(0);
   const writingRef = useRef(false);
   const resultsRef = useRef<HTMLElement>(null);
-
-  // Which model(s) the server is actually configured with, so the UI never
-  // hardcodes a model name. Best-effort: the app works fine without it.
-  useEffect(() => {
-    fetch("/api/config")
-      .then((r) => r.json())
-      .then((c) => setModels(c.models ?? []))
-      .catch(() => {});
-  }, []);
 
   // Keeps the elapsed readout and the open step honest while a run is going.
   useEffect(() => {
@@ -180,7 +170,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen">
-      <StatusLine phase={phase} models={models} />
+      <StatusLine phase={phase} />
 
       <div className="mx-auto max-w-3xl px-6 py-16">
         <header className="mb-12">
@@ -284,9 +274,7 @@ export default function App() {
         <HowItWorks />
 
         <footer className="mt-16 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-line pt-6 font-mono text-[10px] text-muted">
-          <span>
-            {models.length ? models.join(", then ") : "vision model"} via OpenRouter
-          </span>
+          <span>routed via OpenRouter</span>
           <span className="text-line">/</span>
           <span>web search by Tavily</span>
           <span className="text-line">/</span>

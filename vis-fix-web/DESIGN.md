@@ -151,8 +151,11 @@ An early pass had a boot sequence, a typewriter hero, blinking carets, glow
 text shadows, CRT scanlines, an amber radial gradient and fake macOS traffic
 lights. All cut. They were theatre, decoration imitating a terminal rather than
 the product doing real work. The fake window chrome was replaced by a real
-statusline (`components/StatusLine.tsx`) where every field reports actual
-state: model, run phase, rate limit.
+statusline (`components/StatusLine.tsx`): the product name, that requests are
+routed via OpenRouter, the run phase, and the rate limit. It deliberately does
+not name the model. The specific model is a deploy-time detail, it can fall back
+to a second one mid-run, and putting a fixed name in the chrome would just be
+another string to lie the moment the config changes.
 
 A later pass also removed:
 
